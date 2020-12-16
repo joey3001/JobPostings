@@ -1,0 +1,19 @@
+@using ToDoList.Models;
+
+<h1>To Do List</h1>
+@if (Model.Count == 0)
+{
+  <p>There are no items in the list.</p>
+}
+<ul>
+  @foreach (JobPosting jobPosting in Model)
+  {
+    <li><a href='/jobpostings/@jobPosting.Id'>@jobPosting.Description</a></li>
+  }
+</ul>
+
+<a href="/jobpostings/new">Add a new item.</a>
+
+<form action="/jobpostings/delete" method="post">
+  <button type="submit" name="button">Clear All Items</button>
+</form>
